@@ -7,8 +7,8 @@ services:
     networks:
       - backend
   server:
-    image: server-service:latest
     container_name: server-service
+    build: ../back
     ports:
       - '3100:3100'
     depends_on:
@@ -17,19 +17,16 @@ services:
       - backend
       - frontend
   webapp:
-    image: webapp:latest
     container_name: react-service
-    build: ../public/
-    volumes:
-      - .:/usr/app
+    build: ../front/
     ports:
       - '80:3000' # expose ports - HOST:CONTAINER
     depends_on:
       - "server"
     networks:
       - frontend
-  networks:
-    frontend:
-      name: frontend
-    backend:
-      name: backend
+networks:
+  frontend:
+    name: frontend
+  backend:
+    name: backend
