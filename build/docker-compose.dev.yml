@@ -1,0 +1,19 @@
+version: '3'
+services:
+  webapp: # react application
+    volumes:
+      - .:/usr/src/your-app
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+  db: # postgres
+    image: postgres:latest
+    ports:
+      - "8001:5432"
+    networks:
+      - backend
+  server: # redis container
+    depends_on: 
+      - "db"
+
+  
