@@ -1,6 +1,9 @@
 version: "3.5"
 services:
   webapp: # react application
+    image: front:latest
+    volumes:
+      - ../front:/usr/src/app
     environment:
       - NODE_ENV=development
   db: # postgres
@@ -10,6 +13,9 @@ services:
     networks:
       - backend
   server: # redis container
+    image: back:latest
+    volumes:
+      - ../back:/usr/src/server
     depends_on:
       - "db"
       - "migrations"
