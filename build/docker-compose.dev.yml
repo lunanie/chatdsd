@@ -3,7 +3,6 @@ services:
   webapp: # react application
     environment:
       - NODE_ENV=development
-    command: npm run dev
   db: # postgres
     image: postgres:latest
     ports:
