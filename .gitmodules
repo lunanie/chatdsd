@@ -4,6 +4,3 @@
 [submodule "front"]
 	path = front
 	url = https://github.com/lunanie/chatdsd-front.git
-[submodule "storybook"]
-	path = storybook
-	url = https://github.com/lunanie/chatdsd-storybook.git
